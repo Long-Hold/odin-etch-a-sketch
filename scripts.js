@@ -26,7 +26,7 @@ function createGrid()
 function captureMousePath()
 {
     const gridContainer = document.getElementById('js-grid');
-    gridContainer.addEventListener('mouseover', updateGridSquare)
+    gridContainer.addEventListener('mouseover', updateGridSquare);
 }
 
 function updateGridSquare(event)
