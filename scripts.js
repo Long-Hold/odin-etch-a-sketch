@@ -58,7 +58,7 @@ function getUserGridValue()
 function valueIsNumber(value)
 {
     const numberValue = Number(value);
-    return Number.isInteger(numberValue);
+    return Number.isInteger(numberValue) && numberValue > 0;
 }
 
 captureMousePath();
