@@ -6,9 +6,12 @@ function getCSSDimension()
 
 function createGrid()
 {
-    const dimension = getCSSDimension();
+    let dimension = getCSSDimension();
 
     const gridContainer = document.getElementById('js-grid');
+
+    // Clear the container of any divs before building
+    gridContainer.innerHTML = '';
     for (let width = 0; width < dimension; ++width)
     {
         for (let height = 0; height < dimension; ++height)
@@ -32,5 +35,21 @@ function updateGridSquare(event)
         event.target.style.backgroundColor = "var(--odinBlue)";
 }
 
-createGrid();
+function updateCSSGridDimension(gridDimension = '16')
+{
+    const gridVal = document.documentElement;
+    gridVal.style.setProperty('--rowWidth', gridDimension);
+    createGrid();
+}
+
+function getUserGridValue()
+{
+    const dimensionButton = document.getElementById('prompt-button');
+    dimensionButton.addEventListener('click', () => {
+        let userDimension = prompt("Enter your dimension");
+        updateCSSGridDimension(userDimension);
+    })
+}
+
 captureMousePath();
+getUserGridValue();
