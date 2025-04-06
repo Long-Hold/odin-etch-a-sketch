@@ -23,3 +23,27 @@
     width: calc(100% / var(--rowWidth));
     border: solid red 1px;
 }
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--odinBlue);
+    padding: 1rem;
+    border-bottom: solid gold 4px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    width: 25%;
+    height: 50px;
+    border-radius: 50px;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+button:active {
+    background-color: red;
+}
