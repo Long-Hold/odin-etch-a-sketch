@@ -38,6 +38,7 @@ button {
     width: 25%;
     height: 50px;
     border-radius: 50px;
+    border: solid gold 2px;
 }
 
 button:hover {
