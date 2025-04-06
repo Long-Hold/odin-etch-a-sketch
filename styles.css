@@ -9,4 +9,17 @@
 :root {
     /* Sourced from The Odin Project */
     --odinBlue: rgb(14,24,39);
+    --rowWidth: 16;
+}
+
+#js-grid {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#js-grid > * {
+    width: calc(100% / var(--rowWidth));
+    border: solid red 1px;
 }
