@@ -20,4 +20,17 @@ function createGrid()
     }
 }
 
+function captureMousePath()
+{
+    const gridContainer = document.getElementById('js-grid');
+    gridContainer.addEventListener('mouseover', updateGridSquare)
+}
+
+function updateGridSquare(event)
+{
+    if(event.target !== event.currentTarget)
+        event.target.style.backgroundColor = "var(--odinBlue)";
+}
+
 createGrid();
+captureMousePath();
