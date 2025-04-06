@@ -61,5 +61,6 @@ function valueIsNumber(value)
     return Number.isInteger(numberValue) && numberValue > 0;
 }
 
+createGrid();
 captureMousePath();
 getUserGridValue();
