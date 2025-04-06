@@ -37,8 +37,11 @@ function updateGridSquare(event)
 
 function updateCSSGridDimension(gridDimension = '16')
 {
-    const gridVal = document.documentElement;
-    gridVal.style.setProperty('--rowWidth', gridDimension);
+    if (valueIsNumber(gridDimension))
+    {
+        const gridVal = document.documentElement;
+        gridVal.style.setProperty('--rowWidth', gridDimension);
+    }
     createGrid();
 }
 
@@ -49,6 +52,12 @@ function getUserGridValue()
         let userDimension = prompt("Enter your dimension");
         updateCSSGridDimension(userDimension);
     })
+}
+
+function valueIsNumber(value)
+{
+    const numberValue = Number(value);
+    return Number.isInteger(numberValue);
 }
 
 captureMousePath();
