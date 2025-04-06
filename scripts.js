@@ -1,7 +1,12 @@
+function getCSSDimension()
+{
+    return parseInt(getComputedStyle(document.documentElement)
+    .getPropertyValue('--rowWidth').trim(), 10);
+}
+
 function createGrid()
 {
-    const dimension = parseInt(getComputedStyle(document.documentElement)
-    .getPropertyValue('--rowWidth').trim(), 10);
+    const dimension = getCSSDimension();
 
     const gridContainer = document.getElementById('js-grid');
     for (let width = 0; width < dimension; ++width)
