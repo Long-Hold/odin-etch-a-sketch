@@ -47,9 +47,10 @@ function updateCSSGridDimension(gridDimension = '16')
 
 function getUserGridValue()
 {
+    // Prompt user for a value to set the grid on when clicked
     const dimensionButton = document.getElementById('prompt-button');
     dimensionButton.addEventListener('click', () => {
-        let userDimension = prompt("Enter your dimension");
+        let userDimension = prompt("Enter a single dimension value");
         updateCSSGridDimension(userDimension);
     })
 }
