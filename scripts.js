@@ -12,9 +12,9 @@ function createGrid()
 
     // Clear the container of any divs before building
     gridContainer.innerHTML = '';
-    for (let width = 0; width < dimension; ++width)
+    for (let row = 0; row < dimension; ++row)
     {
-        for (let height = 0; height < dimension; ++height)
+        for (let column = 0; column < dimension; ++column)
         {
             const gridSquare = document.createElement('div');
             gridSquare.textContent = `Div`;
