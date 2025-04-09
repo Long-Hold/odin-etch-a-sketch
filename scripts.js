@@ -37,6 +37,8 @@ function updateGridSquare(event)
 
 function updateCSSGridDimension(gridDimension = '16')
 {
+    // Sets the CSS grid value property
+    // CSS uses this value to adjust the size of each box in the grid
     if (valueIsNumber(gridDimension))
     {
         const gridVal = document.documentElement;
@@ -50,15 +52,17 @@ function getUserGridValue()
     // Prompt user for a value to set the grid on when clicked
     const dimensionButton = document.getElementById('prompt-button');
     dimensionButton.addEventListener('click', () => {
-        let userDimension = prompt("Enter a single dimension value");
+        let userDimension = prompt("Enter a single dimension value between 0 and 64");
         updateCSSGridDimension(userDimension);
     })
 }
 
 function valueIsNumber(value)
 {
+    // Check if the grid value is positive and less than a maximum value
+    // Going higher than 64 causes the webpage to crash
     const numberValue = Number(value);
-    return Number.isInteger(numberValue) && numberValue > 0;
+    return Number.isInteger(numberValue) && numberValue > 0 && numberValue <= 64;
 }
 
 createGrid();
