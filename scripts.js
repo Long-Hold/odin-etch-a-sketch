@@ -29,6 +29,41 @@ function captureMousePath()
     gridContainer.addEventListener('mouseover', updateGridSquare);
 }
 
+function captureTouchScreenPath()
+{
+    // Captures events caused by touch-based or track pad users on the webpage
+
+    // Track touches in progress
+    const ongoingTouches = [];
+
+    const gridContainer = document.getElementById('js-grid');
+    gridContainer.addEventListener('touchstart', handleTouch);
+    gridContainer.addEventListener('touchmove', handleTouch);
+}
+
+function handleTouch(event)
+{
+    if (event.cancelable)
+        event.preventDefault();
+
+    const touches = event.changedTouches;
+
+    for (let i = 0; i < touches.length; i++) {
+        const touch = touches[i];
+        
+        // Find the element at the current touch position
+        const touchedElement = document.elementFromPoint(
+            touch.clientX,
+            touch.clientY
+        );
+        
+        // If we found an element and it's a grid square, color it
+        if (touchedElement && touchedElement.closest('#js-grid')) {
+            touchedElement.style.backgroundColor = "var(--odinBlue)";
+        }
+    }
+}
+
 function updateGridSquare(event)
 {
     if(event.target !== event.currentTarget)
@@ -67,4 +102,5 @@ function valueIsNumber(value)
 
 createGrid();
 captureMousePath();
+captureTouchScreenPath();
 getUserGridValue();
