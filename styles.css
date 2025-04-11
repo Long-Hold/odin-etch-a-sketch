@@ -47,3 +47,13 @@ button:hover {
 button:active {
     background-color: red;
 }
+
+header {
+    border-bottom: solid gold 2px;
+    background-color: var(--odinBlue);
+}
+
+header p {
+    text-align: center;
+    color: white;
+}
