@@ -21,7 +21,6 @@
 
 #js-grid > * {
     width: calc(100% / var(--rowWidth));
-    border: solid red 1px;
 }
 
 #button-container {
