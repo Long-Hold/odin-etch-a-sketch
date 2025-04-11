@@ -17,7 +17,6 @@ function createGrid()
         for (let column = 0; column < dimension; ++column)
         {
             const gridSquare = document.createElement('div');
-            gridSquare.textContent = `Div`;
             gridContainer.append(gridSquare);
         }
     }
