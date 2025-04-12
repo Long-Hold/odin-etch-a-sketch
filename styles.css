@@ -12,9 +12,15 @@
     --rowWidth: 16;
 }
 
+body {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
 #js-grid {
-    width: 100%;
-    height: 100vh;
+    width: 80%;
+    height: 80vh;
     display: flex;
     flex-flow: row wrap;
 }
@@ -31,6 +37,7 @@
     padding: 1rem;
     border-bottom: solid gold 4px;
     gap: 1rem;
+    min-width: 100%;
 }
 
 button {
@@ -52,6 +59,7 @@ button:active {
 }
 
 header {
+    min-width: 100%;
     border-bottom: solid gold 2px;
     background-color: var(--odinBlue);
 }
