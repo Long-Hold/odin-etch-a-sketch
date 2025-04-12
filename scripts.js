@@ -1,7 +1,7 @@
 // If false, the grid squares are changed to a solid color
 // If true, grid squares start transparent and become opaque with each new
 // event
-const FADEON = false;
+let FADEON = false;
 
 function getCSSDimension()
 {
@@ -115,7 +115,11 @@ function resetBoard()
 function captureFadeToggle()
 {
     const fadeButton = document.getElementById('fade-mode-button');
-    fadeButton.addEventListener('click', )
+    fadeButton.addEventListener('click', () => {
+        if (FADEON) FADEON = false;
+        else FADEON = true;
+        console.log(FADEON);
+    });
 }
 
 createGrid();
@@ -123,3 +127,4 @@ captureMousePath();
 captureTouchScreenPath();
 getUserGridValue();
 resetBoard();
+captureFadeToggle();
