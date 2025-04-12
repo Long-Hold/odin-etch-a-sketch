@@ -29,6 +29,7 @@
     background-color: var(--odinBlue);
     padding: 1rem;
     border-bottom: solid gold 4px;
+    gap: 1rem;
 }
 
 button {
@@ -42,6 +43,7 @@ button {
 
 button:hover {
     background-color: darkgray;
+    cursor: pointer;
 }
 
 button:active {
