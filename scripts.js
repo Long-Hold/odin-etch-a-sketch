@@ -1,3 +1,8 @@
+// If false, the grid squares are changed to a solid color
+// If true, grid squares start transparent and become opaque with each new
+// event
+const FADEON = false;
+
 function getCSSDimension()
 {
     return parseInt(getComputedStyle(document.documentElement)
@@ -105,6 +110,12 @@ function resetBoard()
     resetButton.addEventListener('click', () => {
         createGrid();
     });
+}
+
+function captureFadeToggle()
+{
+    const fadeButton = document.getElementById('fade-mode-button');
+    fadeButton.addEventListener('click', )
 }
 
 createGrid();
