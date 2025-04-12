@@ -23,6 +23,7 @@ body {
     height: 80vh;
     display: flex;
     flex-flow: row wrap;
+    border: solid 1px gold;
 }
 
 #js-grid > * {

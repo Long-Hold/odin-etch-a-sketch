@@ -114,6 +114,10 @@ function resetBoard()
 
 function captureFadeToggle()
 {
+    /* This function captures clicks on the fade toggle button.
+    If the global var FADEON is false, then it becomes true, vice versa.
+    This helps the grid drawing functions determine whether to use fade drawing
+    or regular drawing.*/
     const fadeButton = document.getElementById('fade-mode-button');
     fadeButton.addEventListener('click', () => {
         if (FADEON) FADEON = false;
