@@ -71,7 +71,10 @@ function handleTouch(event)
 function updateGridSquare(event)
 {
     if(event.target !== event.currentTarget)
-        event.target.style.backgroundColor = "var(--odinBlue)";
+        if (FADEON)
+            event.target.style.backgroundColor = "red";
+        else
+            event.target.style.backgroundColor = "var(--odinBlue)";
 }
 
 function updateCSSGridDimension(gridDimension = '16')
@@ -114,14 +117,28 @@ function resetBoard()
 
 function captureFadeToggle()
 {
-    /* This function captures clicks on the fade toggle button.
-    If the global var FADEON is false, then it becomes true, vice versa.
-    This helps the grid drawing functions determine whether to use fade drawing
-    or regular drawing.*/
+    /* 
+    This function updates the value of global variable FADEON
+    to indicate to other functions that the fade functionality is either
+    on or off.
+
+    It also updates the text content of the button itself to reflect the status
+    of the effect.
+    */
     const fadeButton = document.getElementById('fade-mode-button');
+    const toggleStatus = document.getElementById('toggle-status');
+
     fadeButton.addEventListener('click', () => {
-        if (FADEON) FADEON = false;
-        else FADEON = true;
+        if (FADEON)
+        {
+            FADEON = false;
+            toggleStatus.textContent = 'Off';
+        }
+        else
+        {
+            FADEON = true;
+            toggleStatus.textContent = 'On';
+        }
         console.log(FADEON);
     });
 }
