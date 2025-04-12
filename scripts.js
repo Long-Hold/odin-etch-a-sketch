@@ -99,7 +99,16 @@ function valueIsNumber(value)
     return Number.isInteger(numberValue) && numberValue > 0 && numberValue <= 64;
 }
 
+function resetBoard()
+{
+    const resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', () => {
+        createGrid();
+    });
+}
+
 createGrid();
 captureMousePath();
 captureTouchScreenPath();
 getUserGridValue();
+resetBoard();
