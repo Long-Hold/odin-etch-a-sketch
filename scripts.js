@@ -24,8 +24,16 @@ function createGrid()
     {
         for (let column = 0; column < dimension; ++column)
         {
+            // Creates a border for the square
+            const gridSquareBorder = document.createElement('div');
+            gridSquareBorder.className = 'grid-square-border';
+
+            // The square itself, which would get modified later on by other functions
             const gridSquare = document.createElement('div');
-            gridContainer.append(gridSquare);
+            gridSquare.className = 'grid-square';
+
+            gridSquareBorder.append(gridSquare);
+            gridContainer.append(gridSquareBorder);
         }
     }
 }
@@ -45,11 +53,12 @@ function captureMousePath()
 
 function fadeUpdateGridSquare(event)
 {
+    // #TODO
     if (event.target !== event.currentTarget)
         if (OPACITY === 100)
+        {
             OPACITY = 10;
-         
-        
+        }
 }
 
 function captureTouchScreenPath()
@@ -89,11 +98,14 @@ function handleTouch(event)
 
 function updateGridSquare(event)
 {
-    if(event.target !== event.currentTarget)
-        if (FADEON)
-            event.target.style.backgroundColor = "red";
-        else
-            event.target.style.backgroundColor = "var(--odinBlue)";
+  // Find the inner grid-square, whether it's the target or a child of the target
+  const gridSquare = event.target.classList.contains('grid-square') 
+    ? event.target 
+    : event.target.querySelector('.grid-square');
+    
+  if (gridSquare) {
+    gridSquare.style.backgroundColor = "var(--odinBlue)";
+  }
 }
 
 function updateCSSGridDimension(gridDimension = '16')
