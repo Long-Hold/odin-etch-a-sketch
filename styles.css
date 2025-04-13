@@ -26,9 +26,17 @@ body {
     border: solid 1px gold;
 }
 
-#js-grid > * {
+#js-grid .grid-square-border {
     width: calc(100% / var(--rowWidth));
+    background-color: none;
     border: solid 0.5px black;
+    opacity: 100%;
+}
+
+.grid-square {
+    width: 100%;
+    height: 100%;
+    opacity: 50%;
 }
 
 #button-container {
