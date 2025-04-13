@@ -3,6 +3,9 @@
 // event
 let FADEON = false;
 
+// Adjusts the opacity value of a CSS property
+let OPACITY = 10;
+
 function getCSSDimension()
 {
     return parseInt(getComputedStyle(document.documentElement)
@@ -30,7 +33,23 @@ function createGrid()
 function captureMousePath()
 {
     const gridContainer = document.getElementById('js-grid');
-    gridContainer.addEventListener('mouseover', updateGridSquare);
+
+    // if fadetoggle On, call fadeUpdateGridSquare, else updateGridSquare
+    gridContainer.addEventListener('mouseover', (event) => {
+        if (FADEON)
+            fadeUpdateGridSquare(event);
+        else
+            updateGridSquare(event);
+    });
+}
+
+function fadeUpdateGridSquare(event)
+{
+    if (event.target !== event.currentTarget)
+        if (OPACITY === 100)
+            OPACITY = 10;
+         
+        
 }
 
 function captureTouchScreenPath()
