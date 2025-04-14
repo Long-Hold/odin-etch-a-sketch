@@ -100,7 +100,7 @@ function returnGridSquareTarget(event)
 {
     return  event.target.classList.contains('grid-square') 
     ? event.target 
-    : event.target.querySelector('.grid-square');
+    : event.target.closest('.grid-square');
 }
 
 function updateGridSquare(event)
