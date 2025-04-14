@@ -54,11 +54,20 @@ function captureMousePath()
 function fadeUpdateGridSquare(event)
 {
     // #TODO
-    if (event.target !== event.currentTarget)
+    const gridSquare = returnGridSquareTarget(event);
+
+    if (gridSquare)
+    {
         if (OPACITY === 100)
         {
             OPACITY = 10;
         }
+        gridSquare.style.backgroundColor = "var(--odinBlue)";
+        opStr = OPACITY.toString();
+        gridSquare.style.opacity = opStr;
+        OPACITY += 10;
+    }
+
 }
 
 function captureTouchScreenPath()
