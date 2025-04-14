@@ -96,12 +96,17 @@ function handleTouch(event)
     }
 }
 
+function returnGridSquareTarget(event)
+{
+    return  event.target.classList.contains('grid-square') 
+    ? event.target 
+    : event.target.querySelector('.grid-square');
+}
+
 function updateGridSquare(event)
 {
   // Find the inner grid-square, whether it's the target or a child of the target
-  const gridSquare = event.target.classList.contains('grid-square') 
-    ? event.target 
-    : event.target.querySelector('.grid-square');
+  const gridSquare = returnGridSquareTarget(event);
     
   if (gridSquare) {
     gridSquare.style.backgroundColor = "var(--odinBlue)";
