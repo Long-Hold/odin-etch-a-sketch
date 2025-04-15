@@ -111,6 +111,9 @@ function fadeHandleTouch(event)
             touch.clientY
         );
         
+        if (touchedElement === document.getElementById('js-grid'))
+            continue;
+        
         // If we found an element and it's a grid square, color it
         if (touchedElement && touchedElement.closest('#js-grid')) 
         {
@@ -140,6 +143,9 @@ function handleTouch(event)
             touch.clientX,
             touch.clientY
         );
+
+        if (touchedElement === document.getElementById('js-grid'))
+            continue;
         
         // If we found an element and it's a grid square, color it
         if (touchedElement && touchedElement.closest('#js-grid')) {
