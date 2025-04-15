@@ -86,7 +86,7 @@ function captureTouchScreenPath()
         else
             handleTouch(event);
     });
-    
+
     gridContainer.addEventListener('touchmove', (event) => { 
         if (FADEON)
             fadeHandleTouch(event);
@@ -97,7 +97,32 @@ function captureTouchScreenPath()
 
 function fadeHandleTouch(event)
 {
-    return;
+    if (event.cancelable)
+        event.preventDefault();
+
+    const touches = event.changedTouches;
+
+    for (let i = 0; i < touches.length; i++) {
+        const touch = touches[i];
+        
+        // Find the element at the current touch position
+        const touchedElement = document.elementFromPoint(
+            touch.clientX,
+            touch.clientY
+        );
+        
+        // If we found an element and it's a grid square, color it
+        if (touchedElement && touchedElement.closest('#js-grid')) 
+        {
+            if (OPACITY === 100)
+                OPACITY = 10;
+
+            touchedElement.style.backgroundColor = "var(--odinBlue)";
+            opStr = (OPACITY / 100).toString();
+            touchedElement.style.opacity = opStr;
+            OPACITY += 10;
+        }
+    }
 }
 
 function handleTouch(event)
