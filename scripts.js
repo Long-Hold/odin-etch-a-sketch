@@ -53,7 +53,9 @@ function captureMousePath()
 
 function fadeUpdateGridSquare(event)
 {
-    // #TODO
+    /* Retrieves the element the mouse hovered over and applies opacity to it.
+    Every 10 squares, the opacity reaches 100% before resetting before doing
+    a fade effect. */
     const gridSquare = returnGridSquareTarget(event);
 
     if (gridSquare)
