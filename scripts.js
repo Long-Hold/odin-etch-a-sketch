@@ -63,7 +63,7 @@ function fadeUpdateGridSquare(event)
             OPACITY = 10;
         }
         gridSquare.style.backgroundColor = "var(--odinBlue)";
-        opStr = OPACITY.toString();
+        opStr = (OPACITY / 100).toString();
         gridSquare.style.opacity = opStr;
         OPACITY += 10;
     }
