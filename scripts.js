@@ -141,7 +141,7 @@ function getUserGridValue()
     // Prompt user for a value to set the grid on when clicked
     const dimensionButton = document.getElementById('prompt-button');
     dimensionButton.addEventListener('click', () => {
-        let userDimension = prompt("Enter a single dimension value between 0 and 64");
+        let userDimension = prompt("Enter a value between 1 and 64 to change the # of columns");
         updateCSSGridDimension(userDimension);
     })
 }
