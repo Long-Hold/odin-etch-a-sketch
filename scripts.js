@@ -80,8 +80,24 @@ function captureTouchScreenPath()
     const ongoingTouches = [];
 
     const gridContainer = document.getElementById('js-grid');
-    gridContainer.addEventListener('touchstart', handleTouch);
-    gridContainer.addEventListener('touchmove', handleTouch);
+    gridContainer.addEventListener('touchstart', (event) => { 
+        if (FADEON)
+            fadeHandleTouch(event);
+        else
+            handleTouch(event);
+    });
+    
+    gridContainer.addEventListener('touchmove', (event) => { 
+        if (FADEON)
+            fadeHandleTouch(event);
+        else
+            handleTouch(event);
+    });
+}
+
+function fadeHandleTouch(event)
+{
+    return;
 }
 
 function handleTouch(event)
